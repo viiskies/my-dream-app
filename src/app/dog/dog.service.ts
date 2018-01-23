@@ -24,13 +24,13 @@ export class DogService {
 			)
 	}
 
-	// getCategoryJoke(value:any){
-	// 	return this.http.get('https://api.chucknorris.io/jokes/random?category=' + value).map(
-	// 		(response: Response) => {
-	// 			return response.json();
-	// 		}
-	// 		)
-	// }
+	getDogBreedImage(value:any){
+		return this.http.get('https://dog.ceo/api/breed/' + value + '/images/random').map(
+			(response: Response) => {
+				return response.json();
+			}
+			)
+	}
 
 	// getJokesByValue(value:any){
 	// 	return this.http.get('https://api.chucknorris.io/jokes/search?query=' + value).map(

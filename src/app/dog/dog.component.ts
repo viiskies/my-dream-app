@@ -16,7 +16,7 @@ export class DogComponent implements OnInit {
 	// jokes:any;
 
 	constructor( private tS: DogService ) { 
-
+		this.breedDog = '';
 	}
 
 	ngOnInit() {
@@ -31,8 +31,8 @@ export class DogComponent implements OnInit {
 			);
 	}
 	
-	breedChanged(value:any){
-		this.tS.getBreed(value).subscribe(
+	breedDogChanged(value:any){
+		this.tS.getDogBreedImage(value).subscribe(
 			result => {this.breedDog = result},
 			err => {console.log(err)}
 			);
