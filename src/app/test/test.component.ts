@@ -11,7 +11,8 @@ export class TestComponent implements OnInit {
 	title:string = "Mano antraste";
 
 	joke:any;
-	catJoke:any;
+	categories:any;
+	jokes:any;
 
 	constructor( private tS: TestService ) { 
 
@@ -21,13 +22,29 @@ export class TestComponent implements OnInit {
 		this.tS.getJoke().subscribe( 
 			result => {this.joke = result},
 			err => {console.log(err)}
+			);
 
-		);
-		this.tS.getJokeByCategory().subscribe( 
-			result => {this.catJoke = result},
+		this.tS.getAllCategories().subscribe(
+			gautaInfo => {this.categories = gautaInfo},
 			err => {console.log(err)}
-
-		);
+			);
+	}
+	
+	categoryChanged(value:any){
+		this.tS.getCategoryJoke(value).subscribe(
+			result => {this.joke = result},
+			err => {console.log(err)}
+			);
 	}
 
+	searchJoke(value:any){
+		if(value.length > 3) {
+			this.tS.getJokesByValue(value).subscribe(
+				result => {this.jokes = result['result']},
+
+				error => {console.log(error)}
+				);
+		}
+	}
 }
+

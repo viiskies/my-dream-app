@@ -1,24 +1,20 @@
 <div class="row">
-<p>
-  <ngb-alert [dismissible]="false">
-    <strong>Warning!</strong> Better check yourself, you're not looking too good.
-  </ngb-alert>
-</p>
 	<div class="col">
 		<div class="input-group">
 			<div class="categories">
-				<select (change)="categoryChanged($event.target.value)" class="category input-group-text custom-select" name="category">
+				<select (change)="breedChanged($event.target.value)" class="breed input-group-text custom-select" name="breed">
 					<option value="">Select category</option>
-					<option *ngFor="let category of categories" value="{{category}}">{{category}}</option>
+					<option *ngFor="let breed of breeds" value="{{breed}}">{{breed}}</option>
 				</select>
 			</div>
 		</div>
+		<h2>{{breedDog}}</h2>
 		<div class="mano-testui">
-			<p>{{joke?.value}}</p>
-			<p>{{catJoke?.value}}</p>
+		<img src="{{doggyImage?.message}}">
+<!-- 			<p>{{catJoke?.value}}</p> -->
 		</div>
 	</div>
-	<div class="col">
+<!-- 	<div class="col">
 		<div class="input-group">
 			<div class="categories">
 				<div class="search">
@@ -27,5 +23,5 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </div>

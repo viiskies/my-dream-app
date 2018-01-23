@@ -14,15 +14,29 @@ export class TestService {
 				console.log(response.json());
 				return response.json();
 			}
-		);
+			);
 	}	
-
-	getJokeByCategory() {
-		return this.http.get('https://api.chucknorris.io/jokes/random?category=food').map( 
+	getAllCategories() {
+		return this.http.get('https://api.chucknorris.io/jokes/categories').map(
 			(response: Response) => {
-				console.log(response.json());
 				return response.json();
 			}
-		);
+			)
+	}
+
+	getCategoryJoke(value:any){
+		return this.http.get('https://api.chucknorris.io/jokes/random?category=' + value).map(
+			(response: Response) => {
+				return response.json();
+			}
+		)
+	}
+
+	getJokesByValue(value:any){
+		return this.http.get('https://api.chucknorris.io/jokes/search?query=' + value).map(
+			(response: Response) => {
+				return response.json();
+			}
+		)
 	}
 }

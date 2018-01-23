@@ -8,20 +8,26 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TestComponent } from './test/test.component';
 import { TestService } from './test/test.service';
+import { DogService } from './dog/dog.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { DogComponent } from './dog/dog.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
-    HomeComponent
+    HomeComponent,
+    DogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    NgbModule.forRoot()
   ],
-  providers: [TestService],
+  providers: [TestService, DogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
