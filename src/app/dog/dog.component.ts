@@ -26,7 +26,7 @@ export class DogComponent implements OnInit {
 			);
 
 		this.tS.getAllBreeds().subscribe(
-			result => {this.breeds = result.message},
+			result => {this.breeds = result['message']},
 			err => {console.log(err)}
 			);
 	}

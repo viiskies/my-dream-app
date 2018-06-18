@@ -1,42 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient} from '@angular/common/http';
 import 'rxjs/Rx';
-import { Observable } from 'rxjs';
 
 @Injectable()
 export class TestService {
 
-	constructor(private http: Http) { }
+	constructor(private http: HttpClient) { }
 
 	getJoke() {
-		return this.http.get('https://api.chucknorris.io/jokes/random').map( 
-			(response: Response) => {
-				console.log(response.json());
-				return response.json();
-			}
-			);
+		return this.http.get('https://api.chucknorris.io/jokes/random');
 	}	
 	getAllCategories() {
-		return this.http.get('https://api.chucknorris.io/jokes/categories').map(
-			(response: Response) => {
-				return response.json();
-			}
-			)
+		return this.http.get('https://api.chucknorris.io/jokes/categories');
 	}
 
 	getCategoryJoke(value:any){
-		return this.http.get('https://api.chucknorris.io/jokes/random?category=' + value).map(
-			(response: Response) => {
-				return response.json();
-			}
-		)
+		return this.http.get('https://api.chucknorris.io/jokes/random?category=' + value);
 	}
 
 	getJokesByValue(value:any){
-		return this.http.get('https://api.chucknorris.io/jokes/search?query=' + value).map(
-			(response: Response) => {
-				return response.json();
-			}
-		)
+		return this.http.get('https://api.chucknorris.io/jokes/search?query=' + value);
 	}
 }

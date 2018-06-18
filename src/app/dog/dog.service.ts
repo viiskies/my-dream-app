@@ -1,35 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/Rx';
-import { Observable } from 'rxjs';
 
 @Injectable()
 export class DogService {
 
-	constructor(private http: Http) { }
+	constructor(private http: HttpClient) { }
 
 	getDoggyImage() {
-		return this.http.get('https://dog.ceo/api/breeds/image/random').map( 
-			(response: Response) => {
-				// console.log(response.json());
-				return response.json();
-			}
-			);
-	}	
+		return this.http.get('https://dog.ceo/api/breeds/image/random');
+	}
+
 	getAllBreeds() {
-		return this.http.get('https://dog.ceo/api/breeds/list').map(
-			(response: Response) => {
-				return response.json();
-			}
-			)
+		return this.http.get('https://dog.ceo/api/breeds/list');
 	}
 
 	getDogBreedImage(value:any){
-		return this.http.get('https://dog.ceo/api/breed/' + value + '/images/random').map(
-			(response: Response) => {
-				return response.json();
-			}
-			)
+		return this.http.get('https://dog.ceo/api/breed/' + value + '/images/random');
 	}
 
 	// getJokesByValue(value:any){
